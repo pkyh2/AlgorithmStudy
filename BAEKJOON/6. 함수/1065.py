@@ -12,15 +12,13 @@ list1 = []
 for i in range(1, N+1):
     if i < 100:
         list1.append(i) # 1 ~ 99
-    elif i < 1000:
+    elif i <= 1000:
         digit_1 = (i % 10)
         digit_10 = (i // 10) % 10
         digit_100 = (i // 100)
         if digit_100 == digit_10 == digit_1:    # 111 ~ 999
             list1.append(i)
-        elif digit_100 - digit_10 == digit_10 - digit_1:    # 123 ~ 789
-            list1.append(i)
-        elif digit_1 - digit_10 == digit_10 - digit_100:    # 987 ~ 321
+        elif digit_100 - digit_10 == digit_10 - digit_1:    # 123 ~ 789, 987 ~ 321
             list1.append(i)
 
 print(len(list1))

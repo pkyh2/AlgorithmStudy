@@ -35,3 +35,44 @@ def selfNumber(num):
         print(i)
 
 selfNumber(10000)
+
+
+
+# 신아님 풀이
+import time
+start = time.time()
+
+
+def d(n):
+    ans = n
+    m = n
+    while m > 0:
+        ans += m % 10
+        m = int(m / 10)
+    return ans
+
+
+def is_self_num(n):
+    result = 1          # 결과가 1이면 출력
+    digits = 0          # 자리수?
+    m = n               # n은 1 ~ 10000까지 숫자를 m에 대입
+    while m > 0:        # m이 양수면
+        digits += 1     # 자리수 1증가 
+        m = int(m / 10) # m이 0이상일 때까지 반복
+    i = n - 9 * digits  # i는 
+    while i < n:
+        if d(i) == n:
+            result = 0
+            break
+        i += 1
+    return result
+
+
+num = 1
+while num <= 10000:         # 1부터 10000까지 반복
+    if is_self_num(num):    # 셀프넘버면 출력
+        print(num)
+    num += 1                    
+
+
+print("time :", time.time() - start)
