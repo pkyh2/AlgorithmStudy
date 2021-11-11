@@ -10,13 +10,10 @@
 '''
 
 word = input()
-CroatiaAlphapet = ['c=', 'c-', 'd-', 'lj', 'nj', 's=', 'z=']
+CroatiaAlphapet = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 temp = ''
 list1 = []
 
-for i in range(len(word)):
-    if 'dz=' == word[:3+i]:
-        list1.append('dz=')
 
 for i in CroatiaAlphapet:
     for j in range(1, len(word)):
@@ -32,4 +29,17 @@ print(word)
 print(list1)
 result = len(word) + len(list1)
 
-print(result)
+print(len(word))
+
+#@@@@@@@@@@@@@@@@@@@@@@@정답@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+word = input()
+CroatiaAlphapet = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+
+for i in CroatiaAlphapet:
+    if i in word:
+        word = word.replace(i, '1')
+
+print(len(word))
+
+#@@@@@@@@@@@@@@@@@@@@@@@정답@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
