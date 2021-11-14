@@ -24,10 +24,12 @@ ans = sym.solve(3*n**2 - 3*n + 1 - N, n)
 print(int(ans[1])+1)
 '''
 
-N = int(input())
-honeycomb = 1       # 벌집의 개수 1개부터 시작
-cnt = 1             # 증가
-while N > honeycomb:    # 입력한 번호의 벌집이 현재 벌집개수보다 크면 반복
-    honeycomb += 6*cnt  # 벌집개수가 6의 배수만큼 증가
-    cnt += 1
+# 계차수열을 이용해서는 외부모듈을 사용할 수 없기 때문에 해결할 수 없다.
+# 따라서 
+N = int(input())    # 벌집의 번호 입력
+honeycomb = 1       # 1마을의 벌집의 개수
+cnt = 1             # 몇번째 방인지
+while N > honeycomb:    # N번 벌집이 몇번째 방에 있는지
+    honeycomb += 6*cnt  # 방의 증가식 - 벌집의 개수가 6개 곱하기 방의 개수만큼 늘어난다.
+    cnt += 1        # 방의 수를 1개씩 증가
 print(cnt)
