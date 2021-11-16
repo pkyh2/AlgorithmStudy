@@ -7,6 +7,24 @@ V : 전체 높이
 V(정상) 이상이면 밤에 미끄러지지 않는다.
 '''
 
-# 풀이 1
+# 풀이 1(반복문)
 #  += A - B의 반복
+# 반복문 안될거같긴한데
 A, B, V = map(int, input().split())
+
+height = 0
+cnt = 1
+while height < V:
+    if height + A >= V:
+        print(cnt)
+        break
+    else:
+        height += (A - B)
+        cnt += 1
+# 역시 안됨
+
+#풀이 2(수식)
+A, B, V = map(int, input().split())
+
+height = 0
+cnt = 1
