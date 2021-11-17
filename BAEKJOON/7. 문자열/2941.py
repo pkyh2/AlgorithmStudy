@@ -17,13 +17,13 @@ list1 = []
 
 for i in CroatiaAlphapet:
     for j in range(1, len(word)):
-        temp = word[j-1] + word[j]
+        temp = word[j-1] + word[j]      # 문자를 2개씩 반복  abcdefg
         if temp == i:
-            list1.append(i)
+            list1.append(i)             # 크로아티아 알파벳만 저장
 
 
 for i in list1:
-    word = word.replace(i, "")
+    word = word.replace(i, "")          # 알파벳만 남기고 제거 abc
 
 print(word)
 print(list1)

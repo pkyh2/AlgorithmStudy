@@ -1,5 +1,5 @@
 # 그룹 단어 체커
-
+# aaabbbccca
 '''
 N = int(input())
 cnt = 0
@@ -60,8 +60,8 @@ count = N
 for _ in range(N):  #반복할 수가 필요없을때는 빈칸으로 둬도된다.
     word = input()
 
-    for i in range(len(word)-1):
-        if word.find(word[i]) > word.find(word[i+1]):
+    for i in range(len(word)-1): # happy word[0] ~ word[3] word.find('h') -> 0 word.find(word[1]) -> 
+        if word.find(word[i]) > word.find(word[i+1]):   # ex) happy h:0 a:1 p:2 y:3  /  happhy p:2 h:0 -> x
             count -= 1
             break
 print(count)
