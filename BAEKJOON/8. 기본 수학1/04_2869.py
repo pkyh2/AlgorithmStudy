@@ -25,7 +25,7 @@ while height < V:
 '''
 # 역시 안됨 => 시간초과
 
-#풀이 2(수식)
+# 풀이 2(수식)
 import math
 A, B, V = map(int, input().split())
 
