@@ -27,7 +27,7 @@ else:
 '''
 # 풀이 2(방정식)
 A, B, C = map(int, input().split())
- 
+
 if B >= C:
     print(-1)
 else:
