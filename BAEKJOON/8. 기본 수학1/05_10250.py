@@ -3,6 +3,7 @@
 '''
 한 층에 W개의 방이 있는 H층 호텔에서 N번째 손님에게 배정하는 방 호수
 선호하는 가까운 거리의 방은 낮은 층의 1번째 방을 선호한다. ex) 102호 < 301호
+방 배정 ex) 101, 201, 301, ... 102, 202, 302,
 '''
 
 # 풀이 1(반복문)
@@ -14,12 +15,12 @@ T = int(input())
 
 for _ in range(T):
     H, W, N = map(int, input().split())
-    hotelRoom = []
-    for i in range(1, W+1):
+    hotelRoom = []                              # 방번호 입력
+    for i in range(1, W+1):                     # 호수 반복
         if i < 10:
-            i = '0' + str(i)
-        for j in range(1, H+1):
-            hotelRoom.append(str(j) + str(i))
+            i = '0' + str(i)                    # 1 ~ 9호까지는 앞에 0을 붙여준다.
+        for j in range(1, H+1):                 # 층수 반복
+            hotelRoom.append(str(j) + str(i))   # 층수 + 호수
     
     print(hotelRoom[N-1])
 

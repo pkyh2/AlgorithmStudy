@@ -30,9 +30,9 @@ for _ in range(T):
     
     k = int(input())
     n = int(input())
-    resident = list(range(1, n+1)) # 1 ~ n까지 있는 리스트
-    for i in range(k):
+    resident = list(range(1, n+1))  # 1 ~ n까지 있는 리스트
+    for i in range(k):              # 층 반복
         for j in range(1, n):       # index가 1 ~ 4까지
             resident[j] += resident[j-1]    # [1] = [1] + [0], [2] = [2] + [1]
-
+                                            # 2호 2호 + 1호, 3호에 3호 + 2호... 
     print(resident[n-1])
