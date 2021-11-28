@@ -10,6 +10,9 @@
 # ex) 30 15와 가까운 작은 소수 = 13, 그 다음 소수 17
 # ex) 100 절반 50, 작은 소수 = 47 그 다음 소수 53
 # 예외! 4 6 10 14 같은 동일한 소수의 덧셈
+import time
+start = time.time()
+
 T = int(input())
 
 for _ in range(T):
@@ -28,8 +31,21 @@ for _ in range(T):
 
         return [i for i in range(2, num) if sieve[i] == True]
 
-    ans1 = max(primeNumChecker(half_n+1))
-    ans2 = n - ans1             # 88 43 
+    if n == 4:
+        print(2, 2, sep=' ')
 
-    print(ans1, ans2, sep=' ')
+    primeNum = primeNumChecker(half_n+1)
 
+    for i in range(1, len(primeNum)):
+        ans1 = primeNum[len(primeNum) - i]
+        ans2 = n - ans1
+        confirm = primeNumChecker(ans2+1)
+        if ans2 not in confirm:
+            continue
+        else:
+            print(ans1, ans2, sep=' ')
+            break
+
+end = time.time()
+print(f"{end - start:.5f} sec")
+# 시간 초과...
