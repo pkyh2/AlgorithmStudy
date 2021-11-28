@@ -11,24 +11,29 @@
 # 4. temp과 최소로 나눠지는 수를 출력하고
 # 5. 그 나눠지는 수로 temp //= i해서 temp에 다시 저장
 # 6. 함수 반복
+import time
+start = time.time()
 
 N = int(input())
 temp = N
 
 def primeFactorization(temp):
     if temp != 1:
-        if temp <= 3:
+        if temp <= 3:                                   # 3이하 일때는 그냥 출력
             print(temp)
         else:
-            for i in range(2, temp+1):
-                if temp % i == 0:
-                    print(i)
-                    temp //= i
-                    return primeFactorization(temp)
+            for i in range(2, temp+1):                  # 2부터 현재 숫자(temp)까지 반복
+                if temp % i == 0:                       
+                    print(i)                            # 제일 먼저 나눠지는 숫자 출력
+                    temp //= i                          # 그 숫자로 현재 숫자(temp)를 나눠주고 다시 temp에 저장 
+                    return primeFactorization(temp)     # 반복
 
-    elif temp == 1:
+    elif temp == 1:                                     # temp가 1이 되면 종료
         return
 
 primeFactorization(temp)
+
+end = time.time()
+print(f"{end - start:.5f} sec")
 
 # 시간초가 좀 걸린다...

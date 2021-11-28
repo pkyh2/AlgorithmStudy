@@ -59,7 +59,11 @@ else:
 '''
 # 풀이 3
 # 해당 숫자의 제곱근까지만 확인하는 방법!! 
+import time
+start = time.time()
+
 import math
+
 M = int(input())
 N = int(input())
 numbers = list(range(M, N+1))
@@ -68,7 +72,7 @@ prime_num = []
 for num in numbers:
     not_prime_num = 0
     if num > 1:
-        for i in range(2, int(math.sqrt(num))):
+        for i in range(2, int(math.sqrt(num))+1):
             if num % i == 0:
                 not_prime_num += 1
         if not_prime_num == 0:
@@ -79,8 +83,11 @@ if len(prime_num) < 1:
 else:
     print(sum(prime_num))
     print(min(prime_num))
-    print(prime_num)
-# 제곱근으로 푸는법 다시 해보기
+
+end = time.time()
+print(f"{end - start:.5f} sec")
+# 3.85312 sec
+# 제곱근으로 푸는법 다시 해보기(완료)
 
 
 # 풀이 4
