@@ -15,21 +15,21 @@ start = time.time()
 
 T = int(input())
 
+def primeNumChecker(num):
+    sieve = [True] * num
+    m = int(num**0.5)
+
+    for i in range(2, m + 1):
+        if sieve[i] == True:
+            for j in range(i+i, num, i):
+                sieve[j] = False
+
+    return [i for i in range(2, num) if sieve[i] == True]
+
 for _ in range(T):
     n = int(input())
 
     half_n = n//2
-
-    def primeNumChecker(num):
-        sieve = [True] * num
-        m = int(num**0.5)
-
-        for i in range(2, m + 1):
-            if sieve[i] == True:
-                for j in range(i+i, num, i):
-                    sieve[j] = False
-
-        return [i for i in range(2, num) if sieve[i] == True]
 
     if n == 4:
         print(2, 2, sep=' ')
