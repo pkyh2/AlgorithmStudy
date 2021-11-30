@@ -10,6 +10,7 @@
 # ex) 30 15와 가까운 작은 소수 = 13, 그 다음 소수 17
 # ex) 100 절반 50, 작은 소수 = 47 그 다음 소수 53
 # 예외! 4 6 10 14 같은 동일한 소수의 덧셈
+'''
 import time
 start = time.time()
 
@@ -48,4 +49,55 @@ for _ in range(T):
 
 end = time.time()
 print(f"{end - start:.5f} sec")
+'''
 # 시간 초과...
+
+# 풀이2
+
+T = int(input())
+
+def primeNumPrinter(num):
+    numbers = set(range(2, num+1))
+
+    for i in range(2, num+1):
+        if i in numbers:
+            numbers -= set(range(2*i, num+1, i))
+
+    return [i for i in numbers]
+
+def primeNumChecker(num):
+    numbers = set(range(2, num+1))
+
+    for i in range(2, num+1):
+        if i in numbers:
+            numbers -= set(range(2*i, num+1, i))
+
+    if num in numbers:
+        return True
+    else:
+        return False
+
+for _ in range(T):
+    n = int(input())
+
+    half_n = n//2
+
+    primeNum = primeNumPrinter(half_n+1)
+    primeNum = primeNum[::-1]
+
+    for i in primeNum:
+        ans1 = i
+        ans2 = n - ans1
+        if primeNumChecker(ans2) == False:
+            continue
+        else:
+            print(ans1, ans2, sep=' ')
+            break
+
+# 시간초과...
+
+# 풀이3 차집합
+# 1. 10000까지의 범위니까 set으로 전체에서 짝수는 있을 수 없으니까 소수로만 이루워진 집합 생성
+# 2. 홀수의 배수들을 제거
+# 3. 입력받은 수의 절반보다 작은 가장 가까운 소수를 찾는다.
+# 4. 입력받은 수에서 그 소수를 뺀 수가 위부분 소수에 있는지 확인하고 있으면 출력
