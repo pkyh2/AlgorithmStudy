@@ -53,7 +53,7 @@ print(f"{end - start:.5f} sec")
 # 시간 초과...
 
 # 풀이2
-
+'''
 T = int(input())
 
 def primeNumPrinter(num):
@@ -93,7 +93,7 @@ for _ in range(T):
         else:
             print(ans1, ans2, sep=' ')
             break
-
+'''
 # 시간초과...
 
 # 풀이3 차집합
@@ -101,3 +101,26 @@ for _ in range(T):
 # 2. 홀수의 배수들을 제거
 # 3. 입력받은 수의 절반보다 작은 가장 가까운 소수를 찾는다.
 # 4. 입력받은 수에서 그 소수를 뺀 수가 위부분 소수에 있는지 확인하고 있으면 출력
+
+import time
+start = time.time()
+
+# 2 ~ 10000까지 소수 list 생성
+import math
+numbers = {i for i in range(2, 10001) if i == 2 or i % 2 == 1}      # 2와 홀수
+for i in range(3, int(math.sqrt(10000))+1, 2):                      # 3에서 홀수에 해당하는 수 반복
+    numbers -= {j for j in range(2*i, 10001, i) if j in numbers}    # 홀수의 배수로 이루어진 집합을 빼준다.
+# numbers에는 10000까지 소수가 있다.
+
+T = int(input())
+for i in range(T):
+    even = int(input())
+    half = even // 2
+
+    for x in range(half, 1, -1):
+        if (even - x) in numbers and (x in numbers):
+            print(x, even - x)
+            break
+
+end = time.time()
+print(f"{end - start:.5f} sec")
