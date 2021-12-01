@@ -19,7 +19,7 @@ temp = N
 
 def primeFactorization(temp):
     if temp != 1:
-        if temp <= 3:                                   # 3이하 일때는 그냥 출력
+        if temp <= 3:                                   # 2, 3 일때는 그냥 출력
             print(temp)
         else:
             for i in range(2, temp+1):                  # 2부터 현재 숫자(temp)까지 반복

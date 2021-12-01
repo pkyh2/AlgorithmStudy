@@ -16,11 +16,11 @@ list1 = list(map(int, input().split()))
 if 1 in list1:
     list1.remove(1)
 
-for i in list1:
+for i in list1[:]:                  # 새로운 리스트에서 제거를 해줘야 한다.!!!(슬라이스로 새 리스트)
     for j in range(2, i):
         if i % j == 0:
             if i in list1:
-                list1.remove(i)     # 왜 오류가 나는지 도저히 모르겠다..
+                list1.remove(i)     # 왜 오류가 나는지 도저히 모르겠다.. -> ^ 위에서 해결
 
 print(len(list1))
 print(list1)
@@ -55,7 +55,7 @@ numbers = map(int, input().split())
 result = 0
 
 for num in numbers:
-    cnt = 0
+    cnt = 0                     # 나눠지는 수를 세기위한 변수
     if num > 1:
         for i in range(2, num):   # 2부터 자기자신 전까지
             if num % i == 0:      # 나눠지면 cnt 증가 -> 소수가 아니라는거

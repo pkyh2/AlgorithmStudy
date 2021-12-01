@@ -107,7 +107,7 @@ start = time.time()
 
 # 2 ~ 10000까지 소수 list 생성
 import math
-numbers = {i for i in range(2, 10001) if i == 2 or i % 2 == 1}      # 2와 홀수
+numbers = {i for i in range(2, 10001) if i == 2 or i % 2 == 1}      # 2와 홀수 set
 for i in range(3, int(math.sqrt(10000))+1, 2):                      # 3에서 홀수에 해당하는 수 반복
     numbers -= {j for j in range(2*i, 10001, i) if j in numbers}    # 홀수의 배수로 이루어진 집합을 빼준다.
 # numbers에는 10000까지 소수가 있다.
@@ -118,7 +118,7 @@ for i in range(T):
     half = even // 2
 
     for x in range(half, 1, -1):
-        if (even - x) in numbers and (x in numbers):
+        if (even - x) in numbers and (x in numbers): # 88 -> 47, 41(o) 
             print(x, even - x)
             break
 
