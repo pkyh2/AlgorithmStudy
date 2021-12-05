@@ -69,13 +69,13 @@ N = int(input())
 numbers = list(range(M, N+1))
 prime_num = []
 
-for num in numbers:
-    not_prime_num = 0
+for num in numbers:                                 # 60부터 시작
+    cnt = 0
     if num > 1:
-        for i in range(2, int(math.sqrt(num))+1):
+        for i in range(2, int(math.sqrt(num))+1):   # 루트60까지
             if num % i == 0:
-                not_prime_num += 1
-        if not_prime_num == 0:
+                cnt += 1
+        if cnt == 0:
             prime_num.append(num)
 
 if len(prime_num) < 1:
