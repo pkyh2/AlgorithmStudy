@@ -70,3 +70,20 @@ print('4단계')
 print(board1)
 print(board2)
 print(board3)
+
+
+# 풀이2 재귀
+def hanoi(num, start, end, assist):
+    if num == 1:
+        print(start, end)
+        return
+    
+    hanoi(num-1, start, assist, end)    # n-1개를 assist로
+    print(start, end)                   # n번 판을 end로
+    hanoi(num-1, assist, end, start)    # n-1개를 assist(원래 start)로
+
+N = int(input())
+print(2**N - 1)
+hanoi(N, 1, 3, 2)
+
+#29452KB 876ms
