@@ -17,3 +17,5 @@ if (x >= 1 and x <= w-1) or (y >= 1 and y <= h-1):
     distance.append(h - y)
 
 print(min(distance))
+
+# 29200KB 76ms
