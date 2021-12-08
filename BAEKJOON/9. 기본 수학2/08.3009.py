@@ -10,10 +10,10 @@ Y = []
 result = []
 for i in range(3):
     x, y = map(int, input().split())
-    X.append(x)
-    Y.append(y)
+    X.append(x)             # [5, 5, 7]
+    Y.append(y)             # [5, 7, 5]
 
-if X.count(max(X)) > 1:   # 최대값이 1개보다 많으면 최소값 출력
+if X.count(max(X)) > 1:     # 최대값이 1개보다 많으면 최소값 출력
     result.append(min(X))
 else:
     result.append(max(X))

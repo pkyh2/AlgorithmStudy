@@ -13,17 +13,17 @@ while True:
     if a == 0 and b == 0 and c == 0:
         break
     else:
-        if a > b and a > c:
+        if a > b and a > c:             # a가 제일 긴 변
             if a*a == (b*b) + (c*c):
                 print('right')
             else:
                 print('wrong')
-        elif b > a and b > c:
+        elif b > a and b > c:           # b가 제일 긴 변
             if b*b == (a*a) + (c*c):
                 print('right')
             else:
                 print('wrong')
-        elif c > a and c > b:
+        elif c > a and c > b:           # c가 제일 긴 변
             if c*c == (a*a) + (b*b):
                 print('right')
             else:

@@ -20,10 +20,10 @@
 # 두 점 사이의 거리가 0이고 r1 == r2 일때 
 '''
 import math
-
+import sys
 T = int(input())
 for _ in range(T):
-    x1, y1, r1, x2, y2, r2 = map(int, input().split())
+    x1, y1, r1, x2, y2, r2 = map(int, sys.stdin.readline().split())
     distance = int(math.sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2)))
     #두 점 사이의 거리가 0일때
     if distance == 0:
@@ -49,19 +49,19 @@ for _ in range(T):
 '''
 # 왜 틀렸을까...
 
-T = int(input())
 import sys
+T = int(input())
 for _ in range(T):
     x1, y1, r1, x2, y2, r2 = map(int, sys.stdin.readline().split())
     distance = ((x1 - x2)**2 + (y1 - y2)**2)**0.5
     #두 점 사이의 거리가 0일때
-    if distance == 0 and r1 == r2:
+    if distance == 0 and r1 == r2:  # 무한대
         print(-1)
     # 한 점이 같을때
-    elif distance == r1 + r2 or distance == abs(r1 - r2):
+    elif distance == r1 + r2 or distance == abs(r1 - r2):   # 외접 or 내접
         print(1)
     # 외접 일때
-    elif abs(r1 - r2) < distance < r1 + r2:
+    elif abs(r1 - r2) < distance < r1 + r2:     # 두 점에 걸칠때
         print(2)
     # 그 외
     else:
