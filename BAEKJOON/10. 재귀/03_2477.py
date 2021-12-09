@@ -68,7 +68,8 @@ def countingStar(n):
                                                             # board[1][1]일때는 건너뛰고 ' '빈칸 그대로
 
 
-N = int(input())
+import sys
+N = int(sys.stdin.readline())
 board = [[' ' for _ in range(N)] for _ in range(N)]     # N X N board생성
 
 countingStar(N)

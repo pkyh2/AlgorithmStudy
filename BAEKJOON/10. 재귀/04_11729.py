@@ -73,6 +73,7 @@ print(board3)
 
 
 # 풀이2 재귀
+import sys
 def hanoi(num, start, end, assist):
     if num == 1:
         print(start, end)
@@ -82,7 +83,7 @@ def hanoi(num, start, end, assist):
     print(start, end)                   # n번 판을 end로
     hanoi(num-1, assist, end, start)    # n-1개를 assist(원래 start)로
 
-N = int(input())
+N = int(sys.stdin.readline())
 print(2**N - 1)
 hanoi(N, 1, 3, 2)
 
