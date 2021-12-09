@@ -10,9 +10,9 @@ N장 중 3장의 카드를 골라야 한다.
 # 1, 2, 3
 # 1, 2, 4
 # 1, 2, 5 ...
-
-N, M = map(int, input().split())
-cards = list(map(int, input().split()))
+import sys
+N, M = map(int, sys.stdin.readline().split())
+cards = list(map(int, sys.stdin.readline().split()))
 
 result = []
 
@@ -28,8 +28,9 @@ print(max(result))
 #35316KB 208ms
 
 # 풀이2 while문
-N, M = map(int, input().split())
-cards = list(map(int, input().split()))
+import sys
+N, M = map(int, sys.stdin.readline().split())
+cards = list(map(int, sys.stdin.readline().split()))
 
 result = []
 
@@ -52,8 +53,9 @@ print(max(result))
 
 ## 시간 줄이는 법
 # set함수 사용
-N, M = map(int, input().split())
-cards = list(map(int, input().split()))
+import sys
+N, M = map(int, sys.stdin.readline().split())
+cards = list(map(int, sys.stdin.readline().split()))
 
 result = set()                  # 합계에 중복이 있을 수 있으니까
 
