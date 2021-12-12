@@ -1,4 +1,3 @@
-S = 'abcdefghi'
-print(S.find('a'))
-print(S.find('a', 4))
-print(S.find('d', 2))
+l1 = [55, 185]
+l2 = [53, 190]
+print(l2-l1)

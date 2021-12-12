@@ -1,5 +1,23 @@
 # 체스판 다시 칠하기
 
 '''
+M x N크기의 보드에서 8 x 8 을 선택해 체스판 형태로 바꿔야 한다
+이 때 8x8을 선택하고 체스판으로 바꾸기 위해 최소한으로 색을 변경해야 하는 횟수를 구하시오.  
+'''
 
+# 풀이1
+
+'''
+11 12
+BWWBWWBWWBWW
+BWWBWBBWWBWW
+WBWWBWBBWWBW
+BWWBWBBWWBWW
+WBWWBWBBWWBW
+BWWBWBBWWBWW
+WBWWBWBBWWBW
+BWWBWBWWWBWW
+WBWWBWBBWWBW
+BWWBWBBWWBWW
+WBWWBWBBWWBW
 '''
