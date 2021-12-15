@@ -59,13 +59,13 @@ def countingStar(n):
         return
     
     countingStar(DIV3)                                  # 27 x 27 -> 9 x 9 -> 3 x 3으로 재귀함수 실행
-    for i in range(0, n, DIV3):                         # 3 x 3부터 시작 (0, 3, 1)
+    for i in range(0, n, DIV3):                         # 3 x 3부터 시작 (0, 9, 3)
         for j in range(0, n, DIV3):
-            if i != DIV3 or j != DIV3:                  # DIV3 == 1
-                for k in range(DIV3):                   # 1번 반복
+            if i != DIV3 or j != DIV3:                  # DIV3 == 3
+                for k in range(DIV3):                   # 3번 반복
                     board[i+k][j:j+DIV3] = board[k][:DIV3]  # 핵심!! board[0+0][0:1] = board[0][:1] -> '*'하나
                                                             # board[0+0][1:1+1] = board[0][:1]
-                                                            # board[1][1]일때는 건너뛰고 ' '빈칸 그대로
+                                                            # board[3][3]일때는 건너뛰고 ' '빈칸 그대로
 
 
 import sys
@@ -78,3 +78,5 @@ for i in range(N):
     for j in range(N): 
         print(board[i][j], end='') 
     print()
+
+#67608KB 2624ms
