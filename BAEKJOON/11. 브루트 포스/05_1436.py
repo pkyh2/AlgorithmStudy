@@ -29,34 +29,50 @@ for _ in range(20):
 
 # 풀이2
 import sys
-N = int(sys.stdin.readline())
+for _ in range(int(input())):
+    
+    N = int(sys.stdin.readline())
 
-def numberSix(n):
-    six = '666'
-    cnt = 0
-    idx = 0
-    nine_ten = 0
-    num = 7
-    for i in range(n):
-        cnt += 1
-        if i <= 16:
-            if i == 1:
-                return 666
-            elif i < 7:
-                result = str(i) + six
+    def numberSix(n):
+        six = '666'
+        cnt = 1
+        idx = 0
+        nine_ten = 0
+        num = 7
+        i = 1
+        while i <= n:
+            if i <= 16:
+                if i == 1:
+                    result = '666'
+                elif i <= 6:
+                    result = str(i-1) + six
+                else:
+                    result = six + str(idx)
+                    idx += 1
+                i += 1
             else:
-                result = six + str(idx)
-                idx += 1
-        else:
-            if nine_ten < 9:
-                result = str(num) + six
-                nine_ten += 1
-                num += 1
-            
-            cnt = 7
-            for i in range(9):
-                result = str(cnt + i) + six
-        return result
+                nine_ten = 0
+                for _ in range(9):
+                    if num % 10 == 6:
+                        num += 1
+                    result = str(num) + six
+                    num += 1
+
+                    if i >= n: return result, i, num
+                    i += 1
+                    
+                for _ in range(10):
+                    result = str(cnt) + six + str(nine_ten)
+                    nine_ten += 1
+                    if i >= n: return result, i
+                    i += 1
+                cnt += 1
+
+        return result, i
+
+    print(numberSix(N))
+
+# 1의 자리가 10의자리로 바뀌었을때 해결이 힘듬 ㅜㅜ..
             
 '''
 N : 1 ~ 5까지는
@@ -106,27 +122,27 @@ N : 1 ~ 5까지는
 16669 35
 ㅡㅡㅡ
 17666 36
-18666
-19666
+18666 37
+19666 38
 20666
 21666 40
 22666
 23666
 24666
-25666 45
+25666 44
 ㅡㅡㅡ
-26660 46
+26660 45
 26661
 26662
 26663
-26664 50
-26665 
+26664 
+26665 50
 26666
 26667
 26668
-26669 55
+26669 54
 ㅡㅡㅡ
-27666 56
+27666 55
 28666
 29666
 30666 58
@@ -134,7 +150,7 @@ N : 1 ~ 5까지는
 32
 33
 34
-35
+35666 63
 ㅡㅡㅡ
 36660
 .
