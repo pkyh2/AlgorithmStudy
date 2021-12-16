@@ -84,7 +84,7 @@ def hanoi(num, start, end, assist):
     hanoi(num-1, assist, end, start)    # n-1개를 assist(원래 start)로
 
 N = int(sys.stdin.readline())
-print(2**N - 1)
+print(2**N - 1)                         # 하노이 탑의 일반항 
 hanoi(N, 1, 3, 2)
 
 #29452KB 876ms
