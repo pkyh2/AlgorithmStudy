@@ -94,7 +94,7 @@ result = []
 for y_idx in range(N - 7):      # 0 1
     for x_idx in range(M - 7):
         cnt = 0
-        for k in range(1, 8):   # 1 ~ 8 번 반복
+        for k in range(1, 8):   # 1 ~ 8 번 반복  -> !!!for k in range(y_idx, y_idx + 8):!!!
             for l in range(1, 8):
                 if board[y_idx + k - 1][x_idx + l - 1] == 'B':
                     if (x_idx + k) % 2 == 0 and:
@@ -121,40 +121,27 @@ N, M = map(int, input().split())
 board = [''.join(list(input().split())) for _ in range(N)]
 
 # 변경횟수를 담기위한 리스트
-result_min = []
+result = []    
 
-def check_8x8(board, str, row, col):
-    cnt_W = 0
-    cnt_B = 0
-    result = []
-    if str == 'W':
-        for i in range(8):
-            for j in range(8):
-                if ((col + i) % 2 == 0 and (row + i) % 2 == 0) or ((col + i) % 2 == 1 and (row + i) % 2 == 1):
-                    if board[col + i][row + j] != 'W':
-                        cnt_W += 1
-                elif ((col + i) % 2 == 0 and (row + i) % 2 == 0) or ((col + i) % 2 == 1 and (row + i) % 2 == 1):
-                    if board[col + i][row + j] != 'B':
-                        cnt_W += 1
-    if str == 'B':
-        for i in range(8):
-            for j in range(8):
-                if ((col + i) % 2 == 0 and (row + i) % 2 == 0) or ((col + i) % 2 == 1 and (row + i) % 2 == 1):
-                    if board[col + i][row + j] != 'W':
-                        cnt_B += 1
-                elif ((col + i) % 2 == 0 and (row + i) % 2 == 0) or ((col + i) % 2 == 1 and (row + i) % 2 == 1):
-                    if board[col + i][row + j] != 'B':
-                        cnt_B += 1
-    result.append(cnt_W)
-    result.append(cnt_B)
+for y in range(N - 7):  # 10 - 7 0 1 2   
+    for x in range(M - 7): # 13 - 7 0 1 2 3 4
+        cnt1 = 0
+        cnt2 = 0
+        for i in range(y, y+8):
+            for j in range(x, x+8):
+                if (i % 2 == 0 and j % 2 == 0) or (i % 2 == 1 and j % 2 == 1):
+                    if board[i][j] != 'W':
+                        cnt1 += 1
+                    if board[i][j] != 'B':
+                        cnt2 += 1
+                else:
+                    if board[i][j] != 'B':
+                        cnt1 += 1
+                    if board[i][j] != 'W':
+                        cnt2 += 1
+        result.append(min(cnt1, cnt2))
 
-    return result
-        
-for i in range(N - 7):  # 10 - 7 0 1 2   
-    for j in range(M - 7): # 13 - 7 0 1 2 3 4
-        if board[i][j] == 'B':
-            result_min.append(min(check_8x8(board, 'B', j, i)))
-        elif board[i][j] == 'W':
-            result_min.append(min(check_8x8(board, 'B', j, i)))
 
-print(result_min)
+print(min(result))
+
+#29200KB 128ms

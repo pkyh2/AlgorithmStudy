@@ -177,3 +177,21 @@ N : 1 ~ 5까지는
 109666
 110
 '''
+
+
+# 풀이3
+
+import sys
+
+N = int(sys.stdin.readline())
+tripleSix = 666
+while N != 0:
+    if '666' in str(tripleSix):
+        N -= 1
+        if N == 0:
+            break
+    tripleSix += 1
+
+print(tripleSix)
+
+#29200KB 984ms
