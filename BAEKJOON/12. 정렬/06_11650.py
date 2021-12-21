@@ -24,3 +24,6 @@ for i in point:
     for j in i:
         print(j, end=' ')
     print()
+
+# 시간초과...
+# 합병정렬 써야되나보다
