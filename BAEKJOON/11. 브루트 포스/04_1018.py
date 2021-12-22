@@ -145,3 +145,37 @@ for y in range(N - 7):  # 10 - 7 0 1 2
 print(min(result))
 
 #29200KB 128ms
+
+
+# 함수 사용
+N, M = map(int, input().split())
+
+# 입력받을 borad 생성
+board = [''.join(list(input().split())) for _ in range(N)]
+
+# 변경횟수를 담기위한 리스트
+result = []    
+
+def eightXeight(y, x):
+    cnt1 = 0
+    cnt2 = 0
+    for i in range(y, y+8):
+        for j in range(x, x+8):
+            if (i % 2 == 0 and j % 2 == 0) or (i % 2 == 1 and j % 2 == 1):
+                if board[i][j] != 'W':
+                    cnt1 += 1
+                if board[i][j] != 'B':
+                    cnt2 += 1
+            else:
+                if board[i][j] != 'B':
+                    cnt1 += 1
+                if board[i][j] != 'W':
+                    cnt2 += 1
+    return cnt1, cnt2
+
+for y in range(N - 7):  # 10 - 7 0 1 2   
+    for x in range(M - 7): # 13 - 7 0 1 2 3 4
+        result.append(min(eightXeight(y, x)))
+
+
+print(min(result))

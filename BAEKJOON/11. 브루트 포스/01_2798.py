@@ -40,16 +40,15 @@ while i < len(cards):
     while j < len(cards):
         k = j+1
         while k < len(cards):
-            if i < j < k:       #핵심 키워드!
-                cardsSum = cards[i]+cards[j]+cards[k]
-                if cardsSum <= M:
-                    result.append(cardsSum)
+            cardsSum = cards[i]+cards[j]+cards[k]
+            if cardsSum <= M:
+                result.append(cardsSum)
             k += 1
         j += 1
     i += 1
 
 print(max(result))
-# 35316KB 152ms
+# 35316KB 144ms
 
 ## 시간 줄이는 법
 # set함수 사용
