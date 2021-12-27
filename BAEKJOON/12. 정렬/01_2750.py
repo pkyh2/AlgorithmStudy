@@ -2,21 +2,24 @@
 
 # 풀이1(삽입정렬)
 # 맨앞의 수가 정렬되어 있다고 생각하고 2번째 수부터 이전 숫자와 비교하여 크기 순서대로 변경한다.
-# N = int(input())
-# numbers = []
-# for i in range(N):
-#     num = int(input())
-#     numbers.append(num)
+import sys
+input = sys.stdin.readline
 
-# for i in range(1, len(numbers)):
-#     for j in range(i, 0, -1):
-#         if numbers[j] < numbers[j - 1]:
-#             numbers[j], numbers[j - 1] = numbers[j - 1], numbers[j]
-#         else:
-#             break
+N = int(input())
+numbers = []
+for i in range(N):
+    num = int(input())
+    numbers.append(num)
 
-# for i in numbers:
-#     print(i)
+for i in range(1, len(numbers)):
+    for j in range(i, 0, -1):
+        if numbers[j] < numbers[j - 1]:
+            numbers[j], numbers[j - 1] = numbers[j - 1], numbers[j]
+        else:
+            break
+
+for i in numbers:
+    print(i)
 
 # 29200 288
 

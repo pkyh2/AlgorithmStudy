@@ -26,7 +26,7 @@
 # 시간초과
 # 시간 복잡도 O(N)
 
-
+# 풀이2
 import sys
 input = sys.stdin.readline
 
