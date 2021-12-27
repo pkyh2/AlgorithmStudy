@@ -18,8 +18,11 @@
 # for i in numbers:
 #     print(i)
 
+# 29200 288
+
 # 풀이2(퀵정렬)
 import sys
+input = sys.stdin.readline
 sys.setrecursionlimit(10**6)
 N = int(input())
 numbers = []
@@ -52,3 +55,5 @@ quick_sort(numbers, 0, len(numbers) - 1)
 
 for i in numbers:
     print(i)
+
+# 29960 116

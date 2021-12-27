@@ -65,4 +65,5 @@ else:
     print(modes[0])
 print(max(numbers) - min(numbers))
 
-# 161668 616
+# pypy3 161668 616
+# 52992 1716
