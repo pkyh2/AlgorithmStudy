@@ -12,6 +12,8 @@
 # 스택함수를 통해 짝지어진 괄호인지 판단한다.
 # 괄호가 없는 문자열도 처리를 해준다.
 # '.'만 입력하면 loop종료
+import sys
+input = sys.stdin.readline
 
 def balence_world(parenthesis):
     stack = []
@@ -54,5 +56,5 @@ while True:
                 parenthesis.append(i)
         print(balence_world(parenthesis))
 
-# 29200 412
+# 29200 144
 # [)]. 반례를 처리 안했었음
