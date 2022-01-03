@@ -25,13 +25,10 @@ for i in result:
     for j in numbers:
         if i not in stack:
             stack.append(j)
-            print(stack)
+            numbers.remove(j)
             print('+')
-        else:
+        elif i in stack:
             stack.pop()
-            numbers.remove(i)
-            # print(numbers)
-            print('-')
-            break
+            print('-') 
 
 print(stack)
