@@ -39,4 +39,4 @@ for _ in range(T):
         else:
             importance.rotate(-1)
             queue.rotate(-1)
-# 32360 1000
+# 32360 100
