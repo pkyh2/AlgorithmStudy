@@ -51,27 +51,16 @@ circularQueue = deque(list(range(1, N+1)))
 result = []
 
 while len(circularQueue) >= 1:
-    tempQueue = deque([])
-    if len(circularQueue) < K:
-        if K % len(circularQueue) == 0:
-            result.append(circularQueue.pop())
+    for i in range(K):
+        if i == K-1:
+            result.append(circularQueue.popleft())
         else:
-            if K%len(circularQueue)-1 != 0:
-                result.append(circularQueue[K%len(circularQueue)-1])
-                circularQueue.remove(circularQueue[K%len(circularQueue)-1])
-                circularQueue.rotate(-(K//len(circularQueue)))
-            else:
-                result.append(circularQueue[K%len(circularQueue)-1])
-                circularQueue.remove(circularQueue[K%len(circularQueue)-1])
-    else:
-        for i in range(K):
-            if i == K-1:
-                result.append(circularQueue.popleft())
-            else:
-                circularQueue.rotate(-1)
+            circularQueue.rotate(-1)
     print(circularQueue)
 
 print('<', end='')
 for i in range(len(result)-1):
     print(result[i], end=', ')
 print('{}>'.format(result[-1]))
+
+# 32368 136
