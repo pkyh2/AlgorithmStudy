@@ -58,3 +58,47 @@ while True:
 
 # 29200 144
 # [)]. 반례를 처리 안했었음
+
+# 반복문 수정!
+import sys
+input = sys.stdin.readline
+
+def balence_world(sentence):
+    stack = []
+    for i in sentence:
+        if i == ')' or i == '(' or i == '[' or i == ']':
+            if i == ']' or i == ')':
+                if len(stack) == 0:
+                    return 'no'
+            else:
+                stack.append(i)
+
+            if stack[len(stack)-1] == '(':
+                if i == ')':
+                    stack.pop()
+                elif i == ']':
+                    return 'no'
+            elif stack[len(stack)-1] == '[':
+                if i == ']':
+                    stack.pop()
+                elif i == ')':
+                    return 'no'
+            elif len(stack) == 0:
+                if i == ']' or i == ')':
+                    return 'no'
+            else:
+                stack.append(i)
+    
+    if len(stack) > 0:
+        return 'no'
+    else:
+        return 'yes'
+
+while True:
+    sentence = input()
+    parenthesis = []
+    if sentence[0] == '.':
+        break
+    else:
+        print(balence_world(sentence))
+#30860 116
