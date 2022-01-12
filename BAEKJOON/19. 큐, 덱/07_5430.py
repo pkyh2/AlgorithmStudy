@@ -72,8 +72,8 @@ for _ in range(T):
 
     flag = 0
     cnt = 0
-    for j in functions:
-        if j == 'R':
+    for j in functions:         #[1, 2, 3, 4]
+        if j == 'R':            # RRDD
             cnt += 1
         elif j == 'D':
             if len(dq) == 0:

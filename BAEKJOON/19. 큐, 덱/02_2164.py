@@ -71,7 +71,7 @@ from collections import deque
 
 input = sys.stdin.readline
 
-queue = deque(list(range(1, int(input())+1)))
+queue = deque(list(range(1, int(input())+1)))   # [1, 2, 3, 4, 5, 6]
 while(len(queue) > 1):
     queue.popleft()
     queue.append(queue.popleft())

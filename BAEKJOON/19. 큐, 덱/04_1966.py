@@ -21,8 +21,8 @@ input = sys.stdin.readline
 T = int(input())
 for _ in range(T):
     M, index = map(int, input().split())
-    importance = deque(list(map(int, input().split())))
-    queue = deque([0] * len(importance))
+    importance = deque(list(map(int, input().split()))) # [1, 2, 3, 4]
+    queue = deque([0] * len(importance))                # [0, 0, M, 0]
     queue[index] = M
     cnt = 1
 

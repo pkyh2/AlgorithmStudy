@@ -50,7 +50,7 @@ N, K = map(int, input().split())
 circularQueue = deque(list(range(1, N+1)))
 result = []
 
-while len(circularQueue) >= 1:
+while len(circularQueue) >= 1:      # [1, 2, 3, 4, 5, 6, 7]
     for i in range(K):
         if i == K-1:
             result.append(circularQueue.popleft())
