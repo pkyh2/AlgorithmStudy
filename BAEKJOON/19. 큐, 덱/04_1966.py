@@ -26,9 +26,9 @@ for _ in range(T):
     queue[index] = M
     cnt = 1
 
-    while len(importance) >= 1:
+    while len(importance) >= 1:              # [1, 2, 3, 4]
         i = 0
-        if importance[i] == max(importance):
+        if importance[i] == max(importance): # [0, 0, M, 0]
             if queue[i] == M:
                 print(cnt)
                 break
