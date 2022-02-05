@@ -61,12 +61,12 @@ import sys
 input = sys.stdin.readline
 N = int(input())
 sequence = list(map(int, input().split()))
-NGE = [-1] * N
+NGE = [-1] * N  # -1로 전부 초기화
 stack = [0]
 
 for i in range(len(sequence)):
     # 조건을 만족하면 NGE의 해당 인덱스에 sequence값을 넣어준다.
-    while stack and sequence[stack[-1]] < sequence[i]:
+    while stack and sequence[stack[-1]] < sequence[i]:  # sequence[stack]
         NGE[stack.pop()] = sequence[i]
     # NGE를 구하지 못해도 index는 추가해줘야 한다.
     stack.append(i)
