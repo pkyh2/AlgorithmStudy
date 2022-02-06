@@ -1,20 +1,39 @@
-# 트리의 지름
+import sys
+from collections import deque
+input = sys.stdin.readline
 
-'''
-트리의 지름은 트리에서 임의의 두 점 사이의 거리 중 가장 긴 것을 말한다.
-1. 임의의 노드x(루트)를 잡는다.
-2. 노드 x에서 가장 먼 노드 a를 찾는다.
-3. 노드 a에서 가장 먼 노드 b를 찾는다.
+V = int(input())
 
-이때 트리의 지름은 노드 a와 노드 b를 연결하는 경로
-case1. 노드 x가 노드 a이거나 b인 경우
-case2. 노드 y가 노드 a이거나 b인 경우
-case3. 노드 x와 y를 연결하는 경로가 노드 a와 b를 연결하는 경로의 일부와 겹치는 경우
-case4. 노드 x와 y를 연결하는 경로가 노드 a와 b를 연결하는 경로와 겹치지 않는 경우
-'''
+treeInfo = [[] for _ in range(V+1)]
 
-# 입력
-'''
-V = 트리의 노드 개수(1 ~ V번 까지의 노드이 있다.)
-nodeInfo = 노드의 번호, 연결된 노드, 연결된 노드 까지의 거리, -1
-'''
+for _ in range(V):
+    info = list(map(int, input().split()))
+    for i in range(1, len(info)-1, 2):
+        treeInfo[info[0]].append((info[i], info[i+1]))
+
+def bfs(node):
+    visited = [-1] * (V+1)
+
+    q = deque()
+    q.append(node)
+    visited[node] = 0
+
+    _max = [0, 0]
+
+    while q:
+        old = q.popleft()
+        for new in treeInfo[old]:
+            if visited[new[0]] == -1:
+                visited[new[0]] = visited[old] + new[1]
+                q.append(new[0])
+
+                if _max[0] < visited[new[0]]:
+                    _max[0] = visited[new[0]]
+                    _max[1] = new[0]
+    return _max
+
+dis1, node1 = bfs(1)
+result, node2 = bfs(node1)
+
+print(result)
+# 70368 660
