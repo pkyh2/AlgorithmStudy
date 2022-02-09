@@ -11,7 +11,7 @@ T = int(input())
 for _ in range(T):
     funcs = input()
     n = int(input())
-    # array1 = input().replace(',', '').rstrip()[1:-1]
+    # array1 = input().replace(',', '').rstrip()[1:-1]       DDD [1,2,3,4]
     array1 = input().rstrip()[1:-1].split(',')
     array = deque(array1)
     
