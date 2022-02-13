@@ -1,4 +1,4 @@
-# N과 M(1)
+# N과 M(2)
 
 import sys
 input = sys.stdin.readline
@@ -6,19 +6,15 @@ input = sys.stdin.readline
 N, M = map(int, input().split())
 
 s = []
-
-def dfs():
+def dfs(start):
     if len(s) == M:
         print(' '.join(map(str, s)))
-        return
 
-    for i in range(1, N+1):     # 1 ~ 4
+    for i in range(start, N+1):
         if i not in s:
-            s.append(i)         # [2, ]
-            dfs()
+            s.append(i)
+            dfs(i+1)
             s.pop()
 
-dfs()
-# 30864 216
-
-# 순열함수
+dfs(1)
+# 30864 64
