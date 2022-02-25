@@ -32,14 +32,13 @@ def dfs(x):
     else:
         # 각 행에 퀸 놓기
         for i in range(N): # i 는 열번호 0부터 N 전까지 옮겨가면서 유망한곳 찾기
-            row[x] = i      # x번째 행 i번째 열
+            row[x] = i      # x번째 행 i번째 열 [0,2,0,0]
             if adjacent(x): # 행,열,대각선 체크함수 true이면 백트래킹 안하고 계속 진행
                 dfs(x + 1)
 
 N = int(input())
 row = [0] * N       # index는 행을 뜻하고 원소값은 열을 뜻한다.
 result = 0          # 전체 횟수를 입력
-print(row)
 dfs(0)              # [0,0]부터 시작
 # print(row)
 print(result)
