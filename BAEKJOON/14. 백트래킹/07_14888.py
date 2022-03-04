@@ -17,7 +17,7 @@ for i in range(len(op)):
             elif i == 2: oper.append('*')
             elif i == 3: oper.append('//')
 
-# 사칙연산 조합 set으로 중복 연산을 제거
+# 사칙연산 순열(순서x) set으로 중복 연산을 제거
 oper = list(set(permutations(oper,len(oper))))
 
 # 사칙연산 만들기
@@ -25,7 +25,7 @@ ans = []
 for i in oper:
     result = N[0]   # 1번째 숫자 입력
     # 다음 숫자로 넘어가면서 앞에 해당 연산자에 따라 연산
-    for j in range(len(N)-1):
+    for j in range(len(N)-1):   # 연산자 개수
         if i[j] == '+':
             result += N[j+1]
         elif i[j] == '-':
