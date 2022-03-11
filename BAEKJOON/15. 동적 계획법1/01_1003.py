@@ -22,6 +22,7 @@ for _ in range(T):
 # 시간초과
 
 # memoization(재귀 사용)
+# 이전에 계산한 값을 메모리에 저장
 # 캐싱 사용
 def fib_memo(n, cache): # num과 dict를 매개변수로
     if n < 3:
@@ -43,14 +44,14 @@ def fib(n):
 print(fib(N))
 
 
-# tabulation
+# tabulation(정답)
 # 40개를 미리 만들어 놓기
 import sys
 input = sys.stdin.readline
 
 # 0과 1의 출현 횟수가 fib의 방식이랑 동일하게 나타난다.
 # 캐시에 다음 값을 앞의 값을 이용해서 계산 후 추가
-cache = {0:[1,0], 1:[0,1]}
+cache = {0:[1,0], 1:[0,1]} # 1,1 1,2 2,3 3,5
 for i in range(2, 41):
     cache[i] = [cache[i-2][j] + cache[i-1][j] for j in range(2)]
 
@@ -60,6 +61,7 @@ for _ in range(T):
     print(' '.join(map(str, cache[N])))
 
 # 30860 72
+
 
 # list를 활용한 캐싱
 def fib_list(num):
@@ -74,7 +76,7 @@ fib_list(10)
 
 # dict를 활용한 캐싱
 def fib_dict(num):
-    fib_cache = {1:1, 2:1}
+    fib_cache = {1:1, 2:1} # 3:2
 
     for i in range(3, num+1):
         fib_cache[i] = fib_cache[i-1] + fib_cache[i-2]
