@@ -40,3 +40,6 @@ def solution(money, costs):
 
 costs = [1, 4, 99, 35, 50, 1000]
 print(solution(4578, costs))
+
+costs = [2, 11, 20, 100, 200, 600]
+print(solution(1999, costs))
