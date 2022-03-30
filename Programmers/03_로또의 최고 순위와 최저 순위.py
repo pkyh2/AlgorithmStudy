@@ -15,7 +15,7 @@ def solution(lottos, win_nums):
             if minRank == num:
                 answer.append(rank[num])
     else:
-        
+
     
     return answer
 
