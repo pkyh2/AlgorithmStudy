@@ -7,7 +7,7 @@ N이 짝수일때는 1도 무조건 짝수개
 N == 1, 1
 N == 2, 2
 N == 3, 3
-N == 4, 4
+N == 4, 5
 '''
 import sys
 input = sys.stdin.readline
