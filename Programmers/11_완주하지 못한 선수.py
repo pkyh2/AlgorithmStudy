@@ -1,11 +1,18 @@
 def solution(participant, completion):
-    participant.sort()
-    completion.sort()
-    for i in range(len(participant)):
-        if completion[i] != participant[i]:
-            answer = participant[i]
+    answer = {}
+    for i in participant:
+        answer[i] = answer.get(i, 0) + 1
+    for i in completion:
+        answer[i] -= 1
+    for i in answer.keys():
+        if answer[i]:
+            return i
     
-    return answer
+from collections import Counter
+
+def solution(participant, completion):
+    answer = list(Counter(participant) - Counter(completion))
+    return answer[-1]
 
 participant = ["leo", "kiki", "eden"]
 completion = ["eden", "kiki"]
