@@ -1,3 +1,3 @@
-A = "hello"
-B = list(A)
-print(''.join(map(str, B)))
+s = "1 2 Z 3"
+s = list(s.split())
+print(s)
