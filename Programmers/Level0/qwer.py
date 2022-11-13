@@ -1,5 +1,10 @@
-id_pw = ["meosseugi", "1234"]
-db = [["rardss", "123"], ["yyoom", "1234"], ["meosseugi", "1234"]]
+# for i in range(100):
+#   if i % 3 == 0 or i % 10 == 3:
+#     continue
+#   else:
+#     print(list(i.split()))
 
-print(id_pw[0])
-print(db[0][1])
+
+
+a = 10
+print(list(str(a)))
